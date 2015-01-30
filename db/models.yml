@@ -1,0 +1,25 @@
+User:
+  username: string
+  password: string
+  first_name: string
+  last_name: string
+  email: string
+
+City:
+  name: string
+  state: string
+  country: string
+
+Item:
+  name: string
+  category: string
+  season: string
+
+Trip:
+  name: string
+  user_id: integer
+  city_id: integer
+
+
+
+
