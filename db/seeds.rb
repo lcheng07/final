@@ -31,11 +31,11 @@ contacts = Item.create(name: "Contact Lens", category: "Toiletries", season: "Al
 
 # Create the trip
 puts "Creating trips..."
-sf_trip = Trip.create(name: "Napa", user_id: lucy.id, city_id: san_fran.id)
-miami_trip = Trip.create(name: "Beach", user_id: kevin.id, city_id: miami.id)
-nyc_trip = Trip.create(name: "Client Visit", user_id: khorshid.id, city_id: nyc.id)
-vegas_trip = Trip.create(name: "Bachelor Party", user_id: brian.id, city_id: vegas.id)
-seattle_trip = Trip.create(name: "Interview", user_id: manoje.id, city_id: seattle.id)
+sf_trip = Trip.create(name: "Napa", description: "I love vino!", name: "Lucy", user_id: lucy.id, city: "San Francisco", city_id: san_fran.id)
+miami_trip = Trip.create(name: "Beach", description: "Fun in the sun", name: "Lucy", user_id: kevin.id, city_id: miami.id)
+nyc_trip = Trip.create(name: "Client Visit", description: "Too many meetings", name: "Lucy", user_id: khorshid.id, city_id: nyc.id)
+vegas_trip = Trip.create(name: "Bachelor Party", description: "Viva Las Vegas", name: "Lucy", user_id: brian.id, city_id: vegas.id)
+seattle_trip = Trip.create(name: "Interview", description: "Rain all the time", name: "Lucy", user_id: manoje.id, city_id: seattle.id)
 
 
 puts "There are now #{User.count} users, #{City.count} cities, #{Item.count} items,and #{Trip.count} trips in the database."
