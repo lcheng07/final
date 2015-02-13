@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "name"
     t.integer "user_id"
     t.integer "city_id"
+    t.string  "description"
   end
 
   add_index "trips", ["city_id"], name: "index_trips_on_city_id"

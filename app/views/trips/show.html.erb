@@ -1,8 +1,15 @@
 <h1><%= @trip.name %></h1>
 
-<h4>User ID:</h4>
+<h4>Description:</h4>
+<%= @trip.description %>
 
-<p><%= @trip.user_id %></p>
+<h4>Username:</h4>
 
-<h4>City ID:</h4>
-<p><%= @trip.city_id %></p>
+<p><%= @trip.user.username%></p>
+
+<h4>Name:</h4>
+<p><%= @trip.user.first_name%> <%= @trip.user.last_name%> </p>
+
+
+<h4>City:</h4>
+<p><%= @trip.city.name %></p>

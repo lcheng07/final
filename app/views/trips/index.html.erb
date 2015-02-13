@@ -2,10 +2,9 @@
 	<h1>All Trips</h1>
 </div>
 
-<h2>
-<% @trips.each do |trip| %>
-	<p><a href="/trips/<%=trip.id %>"><%= trip.name %></a></p>
-
+<div class="row">
+	<% @trips.each do |trip| %>
+		<h3><%= link_to trip.name, trip_path(trip)%></h3>
+		<p><%= trip.description %></p>
 <% end %>
-
-</h2>
+</div>

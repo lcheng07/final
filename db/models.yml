@@ -17,8 +17,10 @@ Item:
 
 Trip:
   name: string
+  description: 
   user_id: integer
   city_id: integer
+
 
 
 
