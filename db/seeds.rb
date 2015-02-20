@@ -7,11 +7,11 @@ Item.delete_all
 
 # Create the users
 puts "Creating users..."
-lucy = User.create(username: "lcheng07", password: "unicorn", first_name: "Lucy", last_name: "Cheng", email: "lcheng2015@kellogg.northwestern.edu")
-kevin = User.create(username: "kevinchao18", password: "puppy", first_name: "Kevin", last_name: "Chao", email: "kchao2015@kellogg.northwestern.edu")
-khorshid = User.create(username: "khoshido", password: "panda", first_name: "Khorshid", last_name: "Rahmaninejad", email: "krahmaninejad2015@kellogg.northwestern.edu")
-brian = User.create(username: "brianboy", password: "koala", first_name: "Brian", last_name: "Eng", email: "b-eng@kellogg.northwestern.edu")
-manoje = User.create(username: "manojey", password: "baby seal", first_name: "Manoje", last_name: "Prutthisathaporn", email: "<mprutthisathaporn2015@kellogg.northwestern.edu>")
+lucy = User.create(username: "lcheng07", password: "unicorn", name: "Lucy Cheng", email: "lcheng2015@kellogg.northwestern.edu")
+kevin = User.create(username: "kevinchao18", password: "puppy", name: "Kevin Chao", email: "kchao2015@kellogg.northwestern.edu")
+khorshid = User.create(username: "khoshido", password: "panda", name: "Khorshid Rahmaninejad", email: "krahmaninejad2015@kellogg.northwestern.edu")
+brian = User.create(username: "brianboy", password: "koala", name: "BrianEng", email: "b-eng@kellogg.northwestern.edu")
+manoje = User.create(username: "manojey", password: "baby seal", name: "Manoje Prutthisathaporn", email: "<mprutthisathaporn2015@kellogg.northwestern.edu>")
 
 # Create the city
 puts "Creating cities..."
@@ -37,6 +37,13 @@ nyc_trip = Trip.create(name: "Client Visit", description: "Too many meetings", u
 vegas_trip = Trip.create(name: "Bachelor Party", description: "Viva Las Vegas", user_id: brian.id, city_id: vegas.id)
 seattle_trip = Trip.create(name: "Interview", description: "Rain all the time", user_id: manoje.id, city_id: seattle.id)
 
+# Create the items in the trips
+puts "Creating items in trips..."
+TripItem.create(item_id: toothbrush.id, trip_id: sf_trip.id)
+TripItem.create(item_id: contacts.id, trip_id: sf_trip.id)
+TripItem.create(item_id: flip_flop.id, trip_id: miami.id)
+TripItem.create(item_id: sun_hat.id, trip_id: miami.id)
+TripItem.create(item_id: sweater.id, trip_id: seattle.id)
 
-puts "There are now #{User.count} users, #{City.count} cities, #{Item.count} items,and #{Trip.count} trips in the database."
+puts "There are now #{User.count} users, #{City.count} cities, #{Item.count} items, #{TripItem.count} trip_items and #{Trip.count} trips in the database."
 

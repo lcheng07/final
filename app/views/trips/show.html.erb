@@ -1,15 +1,17 @@
-<h1><%= @trip.name %></h1>
+<div class="jumbotron">
+	<h1><%= @trips.name %></h1>
+</div>
 
 <h4>Description:</h4>
-<%= @trip.description %>
+<%= @trips.description %>
 
 <h4>Username:</h4>
 
-<p><%= @trip.user.username%></p>
+<p><%= @trips.user.username%></p>
 
 <h4>Name:</h4>
-<p><%= @trip.user.first_name%> <%= @trip.user.last_name%> </p>
+<p><%= @trips.user.name%> </p>
 
 
 <h4>City:</h4>
-<p><%= @trip.city.name %></p>
+<p><%= @trips.city.name %></p>

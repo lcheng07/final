@@ -25,11 +25,21 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "season"
   end
 
+  create_table "trip_items", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "trip_id"
+  end
+
+  add_index "trip_items", ["item_id"], name: "index_trip_items_on_item_id"
+  add_index "trip_items", ["trip_id"], name: "index_trip_items_on_trip_id"
+
   create_table "trips", force: :cascade do |t|
     t.string  "name"
     t.integer "user_id"
     t.integer "city_id"
-    t.string  "description"
+    t.text    "description"
+    t.integer "begin_date"
+    t.integer "end_date"
   end
 
   add_index "trips", ["city_id"], name: "index_trips_on_city_id"
@@ -38,9 +48,8 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
-    t.string "first_name"
-    t.string "last_name"
     t.string "email"
+    t.string "name"
   end
 
 end

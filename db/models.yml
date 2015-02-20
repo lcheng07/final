@@ -1,8 +1,7 @@
 User:
+  name: string
   username: string
   password: string
-  first_name: string
-  last_name: string
   email: string
 
 City:
@@ -15,9 +14,15 @@ Item:
   category: string
   season: string
 
+TripItem:
+  item_id: integer
+  trip_id: integer
+
 Trip:
   name: string
-  description: 
+  description: text
+  begin_date: integer
+  end_date: integer
   user_id: integer
   city_id: integer
 
