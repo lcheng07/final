@@ -1,8 +1,11 @@
 User:
   name: string
   username: string
-  password: string
+  password_digest: string
   email: string
+  created_at: datetime
+  updated_at: datetime
+  admin: boolean
 
 City:
   name: string
@@ -14,18 +17,20 @@ Item:
   category: string
   season: string
 
-TripItem:
+PackingList:
   item_id: integer
   trip_id: integer
+  user_id: integer
 
 Trip:
   name: string
   description: text
-  begin_date: integer
-  end_date: integer
+  begin_date: string
+  end_date: string
   user_id: integer
   city_id: integer
-
+  created_at: datetime
+  updated_at: datetime
 
 
 

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+skip_before_action :require_user, only: [:new, :create]
 
 	def index
 		@users = User.all
@@ -13,9 +14,9 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		users_params = params.require(:user).permit(:username)
+		users_params = params.require(:user).permit!
 		User.create(users_params)
-		redirect_to users_path
+		redirect_to root_path, notice: "Welcome to PackIT!"
 	end
 
 	def edit
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
 	end
 	
 	def update
-		user_params = params.require(:user).permit(:username)
+		user_params = params.require(:user).permit!
 		@users = User.find_by(id: params["id"])
 		@users.update(user_params)
 		redirect_to users_path

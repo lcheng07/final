@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150313200954) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -25,31 +25,38 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "season"
   end
 
-  create_table "trip_items", force: :cascade do |t|
+  create_table "packing_lists", force: :cascade do |t|
     t.integer "item_id"
     t.integer "trip_id"
+    t.integer "user_id"
   end
 
-  add_index "trip_items", ["item_id"], name: "index_trip_items_on_item_id"
-  add_index "trip_items", ["trip_id"], name: "index_trip_items_on_trip_id"
+  add_index "packing_lists", ["item_id"], name: "index_packing_lists_on_item_id"
+  add_index "packing_lists", ["trip_id"], name: "index_packing_lists_on_trip_id"
+  add_index "packing_lists", ["user_id"], name: "index_packing_lists_on_user_id"
 
   create_table "trips", force: :cascade do |t|
-    t.string  "name"
-    t.integer "user_id"
-    t.integer "city_id"
-    t.text    "description"
-    t.integer "begin_date"
-    t.integer "end_date"
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "city_id"
+    t.text     "description"
+    t.string   "begin_date"
+    t.string   "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "trips", ["city_id"], name: "index_trips_on_city_id"
   add_index "trips", ["user_id"], name: "index_trips_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
-    t.string "email"
-    t.string "name"
+    t.string   "username"
+    t.string   "email"
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin",           default: false
   end
 
 end

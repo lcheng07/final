@@ -1,5 +1,6 @@
 class Trip < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :city
-	has_many :tripitems, dependent: :destroy
+	belongs_to :item
+	has_many :packing_lists, dependent: :destroy
 end

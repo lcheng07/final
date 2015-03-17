@@ -2,16 +2,35 @@
 	<h1><%= @trips.name %></h1>
 </div>
 
-<h4>Description:</h4>
-<%= @trips.description %>
+<div class="row">
 
-<h4>Username:</h4>
+	<%= link_to "Edit Trip", edit_trip_path, class: "btn btn-success" %>	
+	<%= link_to "Delete Trip", trip_path, method: :delete, data: { confirm: 'Are you really really really sure?' }, class: "btn btn-success" %>
 
-<p><%= @trips.user.username%></p>
+	<h3>City:</h3> 
+		<h5><%= @trips.city.name %></h5>
 
-<h4>Name:</h4>
-<p><%= @trips.user.name%> </p>
+	<h3>Description:</h3> 
+		<h5><%= @trips.description %></h5>
 
+	<h3>Begin Date:</h3> 
+		<h5><%= @trips.begin_date %></h5>
 
-<h4>City:</h4>
-<p><%= @trips.city.name %></p>
+	<h3>End Date:</h3> 
+		<h5><%= @trips.end_date %></h5>
+
+	<h3>Name: </h3>
+		<h5><%= @trips.user.name%></h5>
+
+	<h3>Username: </h3>
+		<h5><%= @trips.user.username%></h5>
+
+	<h3>Packing Lists</h3>
+
+		<p><% @trips.packing_lists.each do |packing_list| %>
+		<p><%= packing_list.item.name %></p>
+		<% end %>
+
+	<%=link_to "Add an Item", new_trip_packing_list_path(@trips), class: "btn btn-success" %>
+
+</div>

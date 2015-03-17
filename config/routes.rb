@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :trips
+  resources :trips do   
+    resources :packing_lists
+  end 
+    
   resources :users
+  resources :sessions
 
-  root to: "users#index"
+  get "/login", to: "sessions#new"
+  get "/logout", to: "sessions#destroy"
+  
+  root to: "trips#index"
 
 end
   # The priority is based upon order of creation: first created -> highest priority.
